@@ -1,0 +1,33 @@
+ALGORITHM algorithm_name
+VAR
+   tab1,tab2: ARRAY_OF INTEGER[10];
+   i,j:INTEGER : 0;
+   found: BOOLEAN; 
+   sum:INTEGER:0;
+BEGIN
+   FOR i FROM 1 TO length(tab1)  DO
+     FOR j FROM 1 TO length(tab2)  DO
+        if (tab1[i]=tab2[j]) then
+             found:=true ;
+             break;
+        END_IF
+        if (tab1[i]<>tab2[j]) then
+             found:=false ;
+             sum:=sum+tab1[i];            
+        END_IF
+     END_FOR
+    END_FOR
+     FOR i FROM 1 TO length(tab2)  DO
+     FOR j FROM 1 TO length(tab1)  DO
+        if (tab1[i]=tab2[j]) then
+             found:=true ;
+             break;
+        END_IF
+        if (tab1[i]<>tab2[j]) then
+             found:=false ;
+             sum:=sum+tab2[i];            
+        END_IF
+     END_FOR
+    END_FOR
+  write(sum);
+END
